@@ -56,11 +56,16 @@ function renderQuestion(arr, list) {
       elItem.innerHTML = `
       <div class="p-3 list-unstyled border border-2">
         <h3 border>${item.question}</h3>
-        <div>
+        <div class="pb-5">
             <p>${item.options[0]}</p>
             <p>${item.options[1]}</p>
             <p>${item.options[2]}</p>
             <p>${item.options[3]}</p>
+            <a href="#" text-primary  ">#${item.difficulty}</a>
+        </div>
+        <div>
+            <button class="btn btn-outline-warning"><i class=" bi bi-box-arrow-in-up-right"></i></button>
+            <button class="btn btn-outline-danger"><i class=" bi bi-trash-fill"></i></button>
         </div>
       </div>
       `
@@ -68,6 +73,8 @@ function renderQuestion(arr, list) {
     });
   }
   function hendleQuestionsBtn() {
+   
+    
     hideAll()
       async function getAllCatagoriya() {
           const { data: res } = await axios.get("http://localhost:1802/questions")
