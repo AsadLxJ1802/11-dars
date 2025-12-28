@@ -47,7 +47,7 @@ function setAnwer(el,idx) {
 
     if (idx === correctIndex) {
         el.classList.add('list-group-item-success')
-        score += questions[correctIndex].points
+        score += questions[currentIndex].points
     }else{
         el.classList.add('list-group-item-danger')
         elQuestionList.children[correctIndex].classList.add('list-group-item-success')
