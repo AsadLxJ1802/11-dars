@@ -20,7 +20,6 @@ function renderCatagoriya(arr, list) {
   });
 }
 function hendleCatagoriyaBtn() {
-    eltextQuestion.classList.remove("border")
 
     hideAll()
     async function getAllCatagoriya() {
@@ -34,7 +33,6 @@ function hendleCatagoriyaBtn() {
 
 // Admin part start
 function hendleadminBtn() {
-    eltextQuestion.classList.remove("border")
     hideAll()
     function renderAdmin(li) {
         li.innerHTML = null
@@ -42,6 +40,7 @@ function hendleadminBtn() {
         elItem.textContent = `
             Lorem ipsum  molestias error necessitatibus ut praesentium ipsam quaerat numquam esse doloribus nam eaque! Saepe.
         `
+        elItem.className = "list-unstyled"
         li.appendChild(elItem)
     }
     
@@ -49,23 +48,26 @@ function hendleadminBtn() {
 }
 // Admin part end
 
-// 
 function renderQuestion(arr, list) {
     list.innerHTML = null;
     arr.forEach(item => {
-      const elItem = document.createElement("li");
+      const elItem = document.createElement("li")
+      elItem.className = "list-unstyled";
       elItem.innerHTML = `
-        <li>${item.question}</li>
-        <li>${item.options[0]}</li>
-        <li>${item.options[1]}</li>
-        <li>${item.options[2]}</li>
-        <li>${item.options[3]}</li>
+      <div class="p-3 list-unstyled border border-2">
+        <h3 border>${item.question}</h3>
+        <div>
+            <p>${item.options[0]}</p>
+            <p>${item.options[1]}</p>
+            <p>${item.options[2]}</p>
+            <p>${item.options[3]}</p>
+        </div>
+      </div>
       `
       list.appendChild(elItem);
     });
   }
   function hendleQuestionsBtn() {
-    eltextQuestion.classList.add("border")
     hideAll()
       async function getAllCatagoriya() {
           const { data: res } = await axios.get("http://localhost:1802/questions")
